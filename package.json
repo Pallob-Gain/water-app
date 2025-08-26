@@ -1,0 +1,66 @@
+{
+  "name": "water-app",
+  "version": "1.0.54",
+  "description": "Water App is a lightweight, flexible framework that allows developers to create cross-platform desktop and web applications using Deno and JSX. Write once, run everywhere—seamlessly deploy your apps on Windows, macOS, Linux, and the web with a single codebase.",
+  "module": "./lib/index.js",
+  "main": "./lib/index.js",
+  "type": "module",
+  "entryPoints": [
+    "./lib/index.js"
+  ],
+  "preferGlobal": true,
+  "scripts": {
+    "install": "deno install  --allow-all --allow-scripts --entrypoint ./index.js",
+    "start": "deno run --allow-all  --config deno.json ./index.js",
+    "dev": "deno run --allow-all  --watch-hmr --config deno.json ./index.js",
+    "build-lib": "deno run -A build-lib.js",
+    "build": "deno compile --allow-all --output ./dist/water-app.exe --include ./lib/  --include ./src/ --include ./manifest.json --icon ./src/views/images/icon-32.ico  --config deno.json ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pallob-Gain/water-app.git"
+  },
+  "keywords": [
+    "water-app",
+    "deno",
+    "cross-platform",
+    "desktop",
+    "webapp"
+  ],
+  "author": "Pallob Kumar Gain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pallob-Gain/water-app/issues"
+  },
+  "homepage": "https://github.com/Pallob-Gain/water-app#readme",
+  "dependencies": {
+    "@suchipi/webview": "^0.2.1",
+    "body-parser": "^1.19.2",
+    "chrome-paths": "^1.0.1",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "deno-importmap": "^0.2.1",
+    "edge-paths": "^3.0.5",
+    "esbuild": "^0.25.5",
+    "esbuild-plugin-alias": "^0.2.1",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.3.1",
+    "express-session": "^1.17.2",
+    "httpolyglot": "^0.1.2",
+    "import-meta-resolve": "^4.1.0",
+    "ip": "^1.1.5",
+    "marked": "^15.0.12",
+    "md5": "^2.3.0",
+    "nanoid": "^5.1.5",
+    "open": "^8.4.0",
+    "puppeteer-core": "^16.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "resedit-cli": "^2.0.1",
+    "sanitize-html": "^2.17.0",
+    "serve-static": "^2.2.0",
+    "socket.io": "^4.4.1",
+    "uuid": "^8.3.2"
+  }
+}

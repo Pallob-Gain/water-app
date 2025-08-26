@@ -1,0 +1,5 @@
+dist/
+.env
+**/desktop.ini
+node_modules/
+vendor/

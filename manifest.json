@@ -1,0 +1,46 @@
+{
+    "name": "water-app",
+    "description": "It is node js MVC for creating interactive chromium based cross-platform desktop-app and web-app.",
+    "author": "Pallob Gain",
+    "version": "1.0.54",
+    "debug":true,
+    "production":false,
+    "orginal_path":false,
+    "desktop":{
+        "auto_start":false,
+        "engine":"webview",
+        "icon":"./src/views/images/icon-32.ico",
+        "width":1200,
+        "height":720,
+        "developer":false,
+        "permissions":["geolocation","midi","notifications","camera","microphone"]
+    },
+    "web":{
+        "auto_start":false,
+        "type":"http",
+        "auto_secure":true,
+        "port":8443,
+        "key":"keys/ssl-cert-snakeoil.key",
+        "cert":"keys/ssl-cert-snakeoil.pem",
+        "ca":"keys/ca-certificates.crt"
+    },
+    "app":{
+        "dir":"./src",
+        "main":"./src/index.js",
+        "links":"./src/config/links.json",
+        "apidir":"./src/apis",
+        "viewdir":"./src/views",
+        "default":{
+            "jQuery":true,
+            "bootstrap":true,
+            "styles":[],
+            "scripts":[]
+        },
+        "staticdir":[
+            {   
+                "name":"_node",
+                "link":"./node_modules"
+            }
+        ]
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "views":[
+        {
+            "name":"Home",
+            "link":["/","/home"],
+            "icon":"fas fa-home",
+            "filename":"dashboard.jsx"
+        },
+        {
+            "name":"Counter",
+            "link":["/counter"],
+            "icon":"fas fa-globe-europe",
+            "filename":"counter.jsx"
+        }
+    ],
+    "apis":[
+        {
+            "link":["/dinosaurs/:name"],
+            "filename":"dinosaurs/access.js"
+        }
+    ]
+}

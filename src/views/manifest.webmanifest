@@ -1,0 +1,18 @@
+{
+  "background_color": "#330D4A",
+  "theme_color": "#3C205F",
+  "short_name": "INDEX.tomi",
+  "name": "It is kind of lister, it's an index site for internet.",
+  "display": "standalone",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "images/icon-255.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display_override": ["window-controls-overlay"]
+}

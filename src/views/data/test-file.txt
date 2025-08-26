@@ -1,0 +1,1 @@
+That file will be read. And, that is a server component.

@@ -1,0 +1,53 @@
+html, body{
+    background: #eeeeee;
+}
+
+#control_grid{
+    border-left:1px solid black;
+}
+
+#control_grid2{
+    
+}
+
+.grid_row{
+    
+}
+
+.grid_row2{
+    
+}
+
+.grid_col{
+    float: left;
+    background:#cccccc;
+    border-top:1px solid black;
+    border-right:1px solid black;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.bg-light{
+    background:white !important;
+}
+
+.no-background{
+    background: none !important;
+}
+
+.no-board{
+    border:0px !important;
+}
+
+/* Small devices (phones, 575.98px and up)*/
+@media (max-width: 575.98px) { 
+    .grid_col{
+        width:26px;
+        height:26px;
+        line-height:26px;
+        font-size:10px;
+    }    
+}
