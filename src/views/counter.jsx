@@ -2,7 +2,7 @@ import React, { use, useState, useEffect, Suspense } from 'react';
 import { fileURLToPath } from 'node:url';
 import debugSys from '@mvc/water-app/debug';
 
-import {withClient,fromServer,useServer,serverOnly,ssrOnly,isServer,createServerState,useServerState,createServerInterface} from "@mvc/water-app/UI/components";
+import {withClient,fromServer,useServer,serverOnly,ssrOnly,isServer,createServerState,useServerState,createServerInterface,runOnServer} from "@mvc/water-app/UI/components";
 import Layout from "./components/Layout.jsx";
 import global_share from '@mvc/water-app/global-share';
 
@@ -52,6 +52,11 @@ async function ServerCompnent(props) {
             <b>{props.children}:</b>{text}
            </p>;
 };
+
+//it will run a function or scope of a code in only server
+runOnServer(() => {
+    console.log('Running on server');
+});
 
 const Counter = (props) => {
     const serverFun = fromServer({client: props.client },ServerEventWaper); //get weather from server
