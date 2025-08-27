@@ -1,5 +1,6 @@
 import React, { use, useState, useEffect, Suspense } from 'react';
 import { fileURLToPath } from 'node:url';
+import debugSys from '@mvc/water-app/debug';
 
 import {withClient,fromServer,useServer,serverOnly,ssrOnly,isServer,createServerState,useServerState,createServerInterface} from "@mvc/water-app/UI/components";
 import Layout from "./components/Layout.jsx";
@@ -69,6 +70,7 @@ const Counter = (props) => {
     //console.log(setCountServer);
 
     const btnClick=async (inc)=>{
+        debugSys.log('Button clicked');
         try{
             setCount((p) => p + inc);
             const result=await serverFun(inc);
