@@ -1,18 +1,22 @@
 import React, { use, useState, useEffect, Suspense } from 'react';
 
-import { withClient, fromServer, useServer, Link, Row, Col, Card, attachServerState, sendServerState, isServer, createServerState, useServerState, createChannel } from "@mvc/water-app/UI/components";
+import { withClient, fromServer, useServer, Link, Row, Col, Card, attachServerState, sendServerState, isServer, createServerState, createLazyServerState, useServerState, createChannel, createServerInterface } from "@mvc/water-app/UI/components";
 import Layout from "./components/Layout.jsx";
 import dinosaurs from '../apis/dinosaurs/data.json' with {type: 'json'};
 import global_share from '@mvc/water-app/global-share';
 
 //if the initial function is async then it also return async
-const [countState, setCountState] = await createServerState('server-counter-element', async () => {
-    //value or function run only once at server, and if it is provided as async then the state also need to be await
+const [countState, setCountState] = await createLazyServerState('server-counter-element', async () => {
+    //and if it is provided as async then the state also need to be await
     return 0;
 });
 
-countState.onSet((value)=>{
-     console.log('Count State Update:',value);
+const clearCounter=createServerInterface('clear-counter',async ()=>{
+    countState.refresh();
+});
+
+countState.onSet((value) => {
+    console.log('Count State Update:', value);
 });
 
 //const [countStateCheck] = createServerState('check-counter-element', 'checkingServerState');
@@ -47,8 +51,12 @@ function RealTimeServerRepresent(props) {
     const [count] = useServerState(countState);
     // const [chkState] = fromServerState({ client: props.client }, countStateCheck);
     // console.log('chkState:',chkState);
-    
-    return <p>Server Count: <b>{count}</b></p>;
+
+
+    return <p>
+        Server Count: <b>{count}</b>
+        <button className="mx-5 btn btn-danger" onClick={() => clearCounter()}>Clear</button>
+    </p>;
 }
 
 
@@ -57,8 +65,8 @@ function Dashboard(props) {
     const ServerInfo = useServer(signeture, ServerInfoSSR);
     const ServerDirect = useServer(signeture, ServerDirectSSR);
 
-    receiver.recv((server_time)=>{
-        console.log('Receive Server time:',new Date(server_time));
+    receiver.recv((server_time) => {
+        console.log('Receive Server time:', new Date(server_time));
     });
 
     return <Layout  {...props} title="Dashboard">
