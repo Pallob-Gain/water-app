@@ -11,7 +11,7 @@ const [countState, setCountState] = await createLazyServerState('server-counter-
     return 0;
 });
 
-const clearCounter=createServerInterface('clear-counter',async ()=>{
+const clearCounter = createServerInterface('clear-counter', async () => {
     countState.refresh();
 });
 
@@ -59,6 +59,9 @@ function RealTimeServerRepresent(props) {
     </p>;
 }
 
+receiver.serverRecv((server_time) => {
+    console.log('Receive time at server:', new Date(server_time));
+});
 
 function Dashboard(props) {
     let signeture = { client: props.__client };
@@ -66,7 +69,7 @@ function Dashboard(props) {
     const ServerDirect = useServer(signeture, ServerDirectSSR);
 
     receiver.recv((server_time) => {
-        console.log('Receive Server time:', new Date(server_time));
+        console.log('Receive time at client:', new Date(server_time));
     });
 
     return <Layout  {...props} title="Dashboard">

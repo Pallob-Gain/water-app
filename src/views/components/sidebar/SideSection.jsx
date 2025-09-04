@@ -13,7 +13,7 @@ async function listMaker(__page_name, element) {
     if ('childs' in element) {
         return await (
             <li class="dropright" key={element.name}>
-                <a href="javascript:void(0)" target="_SELF" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" key={element.name}>
+                <a href="javascript:void(0)" target="_SELF" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                     <i className={element.icon + ' me-3'}></i>
                     {element.name}
                 </a>
@@ -40,7 +40,7 @@ async function listMaker(__page_name, element) {
         if ('filename' in element) {
             return await (
                 <li className={(element.name == __page_name) ? 'active' : 'non-active'} key={element.link[0]}>
-                    <a href={element.link[0]} target="_SELF"  key={element.link[0]}>
+                    <a href={element.link[0]} target="_SELF" >
                         <i className={element.icon + ' me-3'} ></i>
                         {element.name}
                     </a>
@@ -50,7 +50,7 @@ async function listMaker(__page_name, element) {
         else if ('call_back' in element) {
             return (
                 <li key={element.name}>
-                    <a href={`javascript:${element.call_back}('${element.name}','${element.link}');`} target="_SELF" key={element.name}>
+                    <a href={`javascript:${element.call_back}('${element.name}','${element.link}');`} target="_SELF" >
                         <i className={element.icon + ' me-3'}></i>
                         {element.name}
                     </a>
