@@ -23,7 +23,7 @@
     "react-dom/server": "npm:react-dom@19.1.0/server",
     "react-dom/static": "npm:react-dom@19.1.0/static",
     "react/jsx-runtime": "npm:react@19.1.0/jsx-runtime",
-    "esbuild": "npm:esbuild@0.25.5",
+    "esbuild": "npm:esbuild@0.25.9",
     "esbuild_deno_loader": "jsr:@luca/esbuild-deno-loader@0.11.1",
     "esbuild_plugin_alias":"npm:esbuild-plugin-alias@0.2.1",
     "deno-importmap":"npm:deno-importmap@^0.2.1",
