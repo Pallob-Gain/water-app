@@ -104,7 +104,7 @@ const Counter = (props) => {
 
         <button className="btn btn-primary mx-1" onClick={() => btnClick(1)}>Increment</button>
         <button className="btn btn-info  mx-1" onClick={() => btnClick(-1)}>Decrement</button>
-        <h1>Counter: {count}</h1>
+        <h1>Counters: {count}</h1>
         <h1>Server Counter: {serverFunResponse}</h1>
         <h1>Server State Counter: {counterServer}</h1>
          <h1>Server Interface Counter: {counterServer}</h1>
