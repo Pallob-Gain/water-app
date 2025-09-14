@@ -12,7 +12,8 @@
     "./AppUI": "./lib/AppUI.js",
     "./UI/components": "./lib/UI/components.js",
     "./UI/jsx-runtime": "./lib/UI/jsx-runtime.js",
-    "./helpers/client": "./lib/React/client.js"
+    "./helpers/client": "./lib/React/client.js",
+    "./builder": "./lib/builder.js"
   },
   "imports": {
     "react": "npm:react@19.1.0",
@@ -45,6 +46,7 @@
     "import-meta-resolve":"npm:import-meta-resolve@^4.1.0",
     "socket_io": "https://deno.land/x/socket_io@0.2.1/mod.ts",
     "@std/fs": "jsr:@std/fs@1.0.16",
+    "@std/fs/copy": "jsr:@std/fs@1.0.16/copy",
     "@std/path":"jsr:@std/path@^1.0.6"
   },
   "vendor": true,

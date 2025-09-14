@@ -24,10 +24,12 @@ async function StyleProcess(props){
      }
      else if (lazy === true && src) {
           //if lazy load from client
-          const { __manifest } = global_share;
-          if (__manifest?.app?.viewdir) {
+          //console.log('Style lazy loading:', src);
+          //console.log('viewdir:', global_share?.__viewdir);
+          if (global_share?.__viewdir) {
                const link = typeof src == 'string' ? (src.startsWith("file://") ? fileURLToPath(src) : path.resolve(src)) : src;
-               src = path.relative(__manifest.app.viewdir, link); //remake path
+               src = path.relative(global_share.__viewdir, link); //remake path
+               //console.log('remake path:', src);
           }
      }
      else if (src) {

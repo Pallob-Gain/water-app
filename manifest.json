@@ -7,7 +7,7 @@
     "production":false,
     "orginal_path":false,
     "desktop":{
-        "auto_start":false,
+        "auto_start":true,
         "engine":"webview",
         "icon":"./src/views/images/icon-32.ico",
         "width":1200,

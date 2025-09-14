@@ -62,7 +62,7 @@ async function listMaker(__page_name, element) {
 
 async function SideBarPortionSSR(props) {
     if (!('__page_name' in props) || !('__session' in props)) throw 'Server information is not present';
-    const { __links, __name, __public_data } = global_share;
+    const { __links, __name } = global_share;
     const { __session, __page_name } = props;
 
     //console.log('__links:',__links);
@@ -112,8 +112,7 @@ async function SideBarPortionSSR(props) {
             verticalAlign: 'middle',
             color: 'wheat',
         }}>
-            <label>{__public_data.COPY_RIGHT}</label>
-
+        
         </div>
     </>;
 };

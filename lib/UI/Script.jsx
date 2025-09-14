@@ -23,10 +23,9 @@ async function ScriptProcess(props) {
      }
      else if (lazy === true && src) {
           //if lazy load from client
-          const { __manifest } = global_share;
-          if (__manifest?.app?.viewdir) {
+          if (global_share?.__viewdir) {
                const link = typeof src == 'string' ? (src.startsWith("file://") ? fileURLToPath(src) : path.resolve(src)) : src;
-               src = path.relative(__manifest.app.viewdir, link); //remake path
+               src = path.relative(global_share.__viewdir, link); //remake path
           }
           attrs.src = src; //attrs attach src
      }

@@ -4,6 +4,7 @@ import { deepPromiseAll } from './componentPorcess.js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { v4 as uuidv4 } from 'uuid';
+import global_share from "../global-share.js";
 
 const SIGNETURE_NO_VALID_WARN = 'Client-Signeture is not passed or it is invalid!';
 
@@ -378,7 +379,8 @@ export function serverOnly(Component, details) {
   server_fun.timeout = details?.timeout ?? 60000; //default timeout is 60 sec
 
   if (isServer()) {
-    const fun_origin = path.relative(Deno.cwd(), fileURLToPath(details.origin));
+    if(!global_share?.__appdir)throw new Error('Global app dir is not defined!');
+    const fun_origin = path.relative(global_share.__appdir, fileURLToPath(details.origin));
     if (app_all_server_functions.has(details.id)) throw new Error('This ID is already assigned to another server function.');
     app_all_server_functions.set(details.id, { server_only: true, fun_name: Component.name, fun_origin }); //need to store the function name, otherwise it will not work with minification
   }

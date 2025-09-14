@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@mvc/water-app/": "./lib/",
+    "@mvc/water-app/debug": "./lib/debug.js",
+    "@mvc/water-app/global-share": "./lib/global-share.js",
+    "@mvc/water-app/rest": "./lib/rest.js",
+    "@mvc/water-app/include": "./lib/include.js",
+    "@mvc/water-app/loader": "./lib/loader.js",
+    "@mvc/water-app/AppUI": "./lib/AppUI.js",
+    "@mvc/water-app/UI/components": "./lib/UI/components.js",
+    "@mvc/water-app/UI/jsx-runtime": "./lib/UI/jsx-runtime.js",
+    "@mvc/water-app/helpers/client": "./lib/React/client.js"
+  }
+}
