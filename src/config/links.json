@@ -11,6 +11,12 @@
             "link":["/counter"],
             "icon":"fas fa-globe-europe",
             "filename":"counter.jsx"
+        },
+        {
+            "name":"Dinosaurs",
+            "link":["/dinosaur:name"],
+            "icon":"fas fa-globe-europe",
+            "filename":"dinosaur/route.jsx"
         }
     ],
     "apis":[
