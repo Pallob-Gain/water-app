@@ -1,6 +1,6 @@
 {
   "name": "@mvc/water-app",
-  "version": "1.0.65",
+  "version": "1.0.66",
   "license": "MIT",
   "exports": {
     ".": "./lib/index.js",
