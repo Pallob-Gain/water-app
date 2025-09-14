@@ -2,7 +2,7 @@
     "name": "water-app",
     "description": "It is node js MVC for creating interactive chromium based cross-platform desktop-app and web-app.",
     "author": "Pallob Gain",
-    "version": "1.0.67",
+    "version": "1.0.68",
     "debug":true,
     "production":false,
     "orginal_path":false,
