@@ -1,6 +1,6 @@
 {
   "name": "water-app",
-  "version": "1.0.64",
+  "version": "1.0.65",
   "description": "Water App is a lightweight, flexible framework that allows developers to create cross-platform desktop and web applications using Deno and JSX. Write once, run everywhere—seamlessly deploy your apps on Windows, macOS, Linux, and the web with a single codebase.",
   "module": "./lib/index.js",
   "main": "./lib/index.js",
@@ -13,7 +13,7 @@
     "install": "deno install  --allow-all --allow-scripts --entrypoint ./index.js",
     "start": "deno run --allow-all  --config deno.json  ./index.js",
     "dev": "deno run --allow-all  --watch-hmr --config deno.json  ./index.js",
-    "build":"deno run --allow-all  --config deno.json  ./builder.js",
+    "build": "deno run --allow-all  --config deno.json  ./builder.js",
     "compile": "deno task build & deno compile --allow-all --allow-scripts --include ./node_modules/ --include ./.wapp/ --include ./lib/  --include ./src/ --include ./manifest.json --include ./deno.json --include import_map.json --include ./package.json --icon ./src/views/images/icon-32.ico --output ./dist/water-app.exe --config deno.json ./index.js"
   },
   "repository": {
