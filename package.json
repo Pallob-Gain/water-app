@@ -1,6 +1,6 @@
 {
   "name": "water-app",
-  "version": "1.0.76",
+  "version": "1.0.77",
   "description": "Water App is a lightweight, flexible framework that allows developers to create cross-platform desktop and web applications using Deno and JSX. Write once, run everywhere—seamlessly deploy your apps on Windows, macOS, Linux, and the web with a single codebase.",
   "module": "./lib/index.js",
   "main": "./lib/index.js",
