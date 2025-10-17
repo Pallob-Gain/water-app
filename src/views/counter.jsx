@@ -112,6 +112,7 @@ const Counter = (props) => {
 }
 
 function CounterApp(props) {
+    
     const server_data=fetchWeather(); //extract server data
     const weather = fromServer({ id: 'weather-data', client: props.__client }, server_data); //only get data during SSR
     const ServerFile = useServer({client: props.__client },ServerCompnent); //get weather from server

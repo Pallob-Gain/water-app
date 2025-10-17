@@ -4,7 +4,7 @@
     "author": "Pallob Gain",
     "version": "1.0.69",
     "debug":true,
-    "production":false,
+    "production":true,
     "orginal_path":false,
     "desktop":{
         "auto_start":false,

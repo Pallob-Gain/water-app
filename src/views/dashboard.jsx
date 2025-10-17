@@ -16,7 +16,7 @@ const clearCounter = createServerInterface('clear-counter', async () => {
 });
 
 countState.onSet((value) => {
-    console.log('Count State Update:', value);
+    //console.log('Count State Update:', value);
 });
 
 //const [countStateCheck] = createServerState('check-counter-element', 'checkingServerState');
@@ -38,13 +38,13 @@ const ServerDirectSSR = async function () {
 //update over time
 setInterval(() => {
     setCountState((state) => {
-        console.log('current state:', state);
+        //console.log('current state:', state);
         return state + 1;
     });
 
     //send current time
     sender.send((new Date()).getTime()); //send server time to the channel
-}, 1000);
+}, 1);
 
 
 function RealTimeServerRepresent(props) {
@@ -60,7 +60,7 @@ function RealTimeServerRepresent(props) {
 }
 
 receiver.serverRecv((server_time) => {
-    console.log('Receive time at server:', new Date(server_time));
+    //console.log('Receive time at server:', new Date(server_time));
 });
 
 function Dashboard(props) {
@@ -69,7 +69,7 @@ function Dashboard(props) {
     const ServerDirect = useServer(signeture, ServerDirectSSR);
 
     receiver.recv((server_time) => {
-        console.log('Receive time at client:', new Date(server_time));
+        //console.log('Receive time at client:', new Date(server_time));
     });
 
     return <Layout  {...props} title="Dashboard">

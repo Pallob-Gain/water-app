@@ -6,56 +6,46 @@ import global_share from "@mvc/water-app/global-share";
 import { pathToFileURL } from 'node:url';
 
 
-async function listMaker(__page_name, element) {
+function ListMaker({ __page_name, element, key }) {
 
     if ('visible' in element && !element.visible) return '';
 
     if ('childs' in element) {
-        return await (
-            <li class="dropright" key={element.name}>
-                <a href="javascript:void(0)" target="_SELF" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                    <i className={element.icon + ' me-3'}></i>
-                    {element.name}
-                </a>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {
-                        (
-                            await Promise.all(
-                                element.childs.map(async (child) => {
-                                    return await (
-                                        <a className="dropdown-item sidebar-dropdown-items" href={`javascript:${child.call_back}('${child.name}','${child.link}');`} target="_SELF">
-                                            <i class={child.icon + ' me-3'}></i>
-                                            {child.name}
-                                        </a>
-                                    );
-                                })
-                            )
-                        ).join('')
-                    }
-                </div>
-            </li>
-        );
+        return <li class="dropright" key={key}>
+            <a href="javascript:void(0)" target="_SELF" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <i className={element.icon + ' me-3'}></i>
+                {element.name}
+            </a>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {
+                    element.childs.map((child, index) => {
+                        return (
+                            <a key={index} className="dropdown-item sidebar-dropdown-items" href={`javascript:${child.call_back}('${child.name}','${child.link}');`} target="_SELF">
+                                <i class={child.icon + ' me-3'}></i>
+                                {child.name}
+                            </a>
+                        );
+                    })
+                }
+            </div>
+        </li>;
     }
     else {
         if ('filename' in element) {
-            return await (
-                <li className={(element.name == __page_name) ? 'active' : 'non-active'} key={element.link[0]}>
-                    <a href={element.link[0]} target="_SELF" >
-                        <i className={element.icon + ' me-3'} ></i>
-                        {element.name}
-                    </a>
-                </li>
-            );
+            return <li className={(element.name == __page_name) ? 'active' : 'non-active'} key={key} >
+                <a href={element.link[0]} target="_SELF" >
+                    <i className={element.icon + ' me-3'} ></i>
+                    {element.name}
+                </a>
+            </li>;
         }
         else if ('call_back' in element) {
-            return (
-                <li key={element.name}>
-                    <a href={`javascript:${element.call_back}('${element.name}','${element.link}');`} target="_SELF" >
-                        <i className={element.icon + ' me-3'}></i>
-                        {element.name}
-                    </a>
-                </li>
-            );
+            return <li key={key} >
+                <a href={`javascript:${element.call_back}('${element.name}','${element.link}');`} target="_SELF" >
+                    <i className={element.icon + ' me-3'}></i>
+                    {element.name}
+                </a>
+            </li>;
         }
     }
 }
@@ -93,12 +83,9 @@ async function SideBarPortionSSR(props) {
         <div style={{ position: 'relative', zIndex: 100 }} className="mt-3">
             <ul className="list-unstyled components application-list mb-5">
                 {
-                    (await Promise.all(
-                        all_pages_details.map(async (element) => {
-                            if (hide_list.includes(element.name)) return ''; //block this for now
-                            return await listMaker(__page_name, element);
-                        })
-                    ))
+                    all_pages_details.filter((element) => !hide_list.includes(element.name)).map((element, key) => {
+                        return ListMaker({ __page_name, element, key });
+                    })
                 }
             </ul>
         </div>
@@ -112,7 +99,7 @@ async function SideBarPortionSSR(props) {
             verticalAlign: 'middle',
             color: 'wheat',
         }}>
-        
+
         </div>
     </>;
 };
