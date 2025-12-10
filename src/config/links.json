@@ -13,6 +13,12 @@
             "filename":"counter.jsx"
         },
         {
+            "name":"File Picker",
+            "link":["/file-picker"],
+            "icon":"fas fa-globe-europe",
+            "filename":"file-picker.jsx"
+        },
+        {
             "name":"Dinosaurs",
             "link":["/dinosaur:name"],
             "icon":"fas fa-globe-europe",
