@@ -7,7 +7,10 @@ import Layout from "./components/Layout.jsx";
 const openFile = createServerInterface('file-opening-interface', async () => {
     
     const file = await FilePicker.openFileDialog({
-        filter: "Text Files\0*.txt\0All Files\0*.*\0\0",
+        filter: [
+            { name: "Text Files", extensions: ["txt","md"] },
+            { name: "All Files", extensions: ["*"] }
+        ],
         title: "Open a text file",
         defaultExt: "txt",
     });

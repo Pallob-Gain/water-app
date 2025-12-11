@@ -5,7 +5,7 @@
   "exports": {
     ".": "./lib/index.js",
     "./debug": "./lib/debug.js",
-    "./file-picker": "./lib/SystemUI/FilePicker/index.js",
+    "./file-picker": "./lib/SystemUI/FilePicker/Picker.js",
     "./global-share": "./lib/global-share.js",
     "./rest": "./lib/rest.js",
     "./include": "./lib/include.js",
