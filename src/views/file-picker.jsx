@@ -25,6 +25,7 @@ const saveFile= createServerInterface('file-saving-interface', async (content) =
     const file = await FilePicker.saveFileDialog({
         filter: "Text Files\0*.txt\0All Files\0*.*\0\0",
         title: "Save a text file",
+        defaultFileName: "document.txt",
         defaultExt: "txt",
     });
 
