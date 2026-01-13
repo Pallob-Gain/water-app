@@ -8,7 +8,7 @@ try{
     console.log('Fully started');
 }
 catch(err){
-    console.log('error:',err);
+    console.log('Executation:',err);
     Deno.exit(-1);
 }
 

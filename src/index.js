@@ -6,8 +6,10 @@ import debugSys from '@mvc/water-app/debug';
 //import PartialSection from './views/components/partial/PartialSection.jsx';
 
 export default async function main(props){
+  
     const details=await getDetails(props);
     debugSys.log('Details check:',details);
+    
 
     await initSetup(props);
     await mysqlSetup(props);

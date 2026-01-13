@@ -14,7 +14,7 @@
     "start": "deno run --allow-all  --config deno.json  ./index.js",
     "dev": "deno run --allow-all  --watch-hmr --config deno.json  ./index.js",
     "build": "deno run --allow-all  --config deno.json  ./builder.js",
-    "compile": "deno task build & deno compile --allow-all --allow-scripts --include ./.wapp/ --include ./lib/  --include ./src/ --include ./manifest.json --include ./deno.json --include import_map.json --include ./package.json --icon ./src/views/images/icon-32.ico --output ./dist/water-app.exe --config deno.json ./index.js"
+    "compile": "deno compile --allow-all --no-terminal --allow-scripts --include ./.wapp/ --include ./lib/  --include ./src/ --include ./manifest.json --include ./deno.json --include import_map.json --include ./package.json --icon ./src/views/images/icon-32.ico --output ./dist/water-app.exe --config deno.json ./index.js"
   },
   "repository": {
     "type": "git",
