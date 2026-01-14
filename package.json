@@ -55,7 +55,7 @@
     "md5": "^2.3.0",
     "nanoid": "^5.1.5",
     "open": "^8.4.0",
-    "puppeteer-core": "^16.2.0",
+    "puppeteer-core": "^24.35.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "resedit-cli": "^2.0.1",
