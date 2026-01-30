@@ -8,7 +8,7 @@
   "orginal_path": false,
   "desktop": {
     "auto_start": true,
-    "engine": "auto",
+    "engine": "webview",
     "icon": "./src/views/images/icon-32.ico",
     "width": 1200,
     "height": 720,
