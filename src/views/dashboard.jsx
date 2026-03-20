@@ -72,6 +72,7 @@ function Dashboard(props) {
         //console.log('Receive time at client:', new Date(server_time));
     });
 
+
     return <Layout  {...props} title="Dashboard">
         <ServerInfo id='server-info' />
         <ServerDirect id='server-infox' />

@@ -59,11 +59,21 @@ function FilePickerExample(props) {
         }
     }
 
+    const handleOpenFolder = async () => {
+        try {
+            const folder = await FilePicker.openFolderDialog();
+            debugSys.log('Selected folder:', folder);
+        } catch (error) {
+            debugSys.error('Error opening folder:', error);
+        }
+    }
+
     return <Layout {...props}>
         <h1>File Picker Example</h1>
         <p>This is an example of using the File Picker component.</p>
         <button className="mx-1 btn btn-primary" onClick={handleOpenFile} >Open Text File</button>
         <button className="mx-1 btn btn-primary" onClick={handleSaveFile} >Save File</button>
+        <button className="mx-1 btn btn-primary" onClick={handleOpenFolder} >Open a directory</button>
 
         <div ref={fileContentRef} className="mt-3" contentEditable={true} style={{ whiteSpace: 'pre-wrap', border: '1px solid #ccc', padding: '10px', minHeight: '200px' }}>{fileContent}</div>
 
