@@ -35,6 +35,14 @@ const saveFile= createServerInterface('file-saving-interface', async (content) =
     else throw new Error('No file selected or operation canceled.');
 });
 
+const openFolder= createServerInterface('folder-opening-interface', async () => {
+    const folder = await FilePicker.openFolderDialog({
+        title: "Select a folder to open",
+    });
+    console.log('Selected folder:', folder);
+    return folder;
+});
+
 function FilePickerExample(props) {
     const fileContentRef = useRef(null);
     const [fileContent, setFileContent] = useState('Open a file to see its content here.');
@@ -61,7 +69,7 @@ function FilePickerExample(props) {
 
     const handleOpenFolder = async () => {
         try {
-            const folder = await FilePicker.openFolderDialog();
+            const folder = await openFolder();
             debugSys.log('Selected folder:', folder);
         } catch (error) {
             debugSys.error('Error opening folder:', error);

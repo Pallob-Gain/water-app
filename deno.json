@@ -1,6 +1,6 @@
 {
   "name": "@mvc/water-app",
-  "version": "1.0.89",
+  "version": "1.0.90",
   "license": "MIT",
   "exports": {
     ".": "./lib/index.js",
@@ -19,8 +19,8 @@
   "imports": {
     "react": "npm:react@19.2.4",
     "react-dom": "npm:react-dom@19.2.4",
-    "react-router-dom": "npm:react-router-dom@7.1.0",
-    "react-router": "npm:react-router@7.1.0",
+    "react-router-dom": "npm:react-router-dom@7.13.1",
+    "react-router": "npm:react-router@7.13.1",
     "react-dom/client": "npm:react-dom@19.2.4/client",
     "react-dom/server": "npm:react-dom@19.2.4/server",
     "react-dom/static": "npm:react-dom@19.2.4/static",
