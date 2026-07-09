@@ -13,8 +13,10 @@
     "install": "deno install  --allow-all --allow-scripts --entrypoint ./index.js",
     "start": "deno run --allow-all  --config deno.json  ./index.js",
     "dev": "deno run --allow-all  --watch-hmr --config deno.json  ./index.js",
+    "desktop-dev": "deno desktop  --hmr --allow-all --backend raw --allow-all  --allow-scripts --include ./.wapp/ --include ./lib/  --include ./src/ --include ./manifest.json --include ./deno.json --include import_map.json --include ./package.json --config deno.json ./index.js",
     "build": "deno run --allow-all  --config deno.json  ./builder.js",
-    "compile": "deno compile --allow-all --no-terminal --allow-scripts --include ./.wapp/ --include ./lib/  --include ./src/ --include ./manifest.json --include ./deno.json --include import_map.json --include ./package.json --icon ./src/views/images/icon-32.ico --output ./dist/water-app.exe --config deno.json ./index.js"
+    "compile": "deno compile --no-terminal --allow-all  --allow-scripts --include ./.wapp/ --include ./lib/  --include ./src/ --include ./manifest.json --include ./deno.json --include import_map.json --include ./package.json --icon ./src/views/images/icon-32.ico --output ./dist/water-app.exe --config deno.json ./index.js",
+    "build-desktop": "deno desktop --allow-all  --allow-scripts --include ./.wapp/ --include ./lib/  --include ./src/ --include ./manifest.json --include ./deno.json --include import_map.json --include ./package.json --icon ./src/views/images/icon-32.ico --output ./dist/water-app.exe --config deno.json ./index.js"
   },
   "repository": {
     "type": "git",
@@ -55,7 +57,7 @@
     "md5": "^2.3.0",
     "nanoid": "^5.1.5",
     "open": "^8.4.0",
-    "puppeteer-core": "^24.35.0",
+    "puppeteer-core": "^25.3.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "resedit-cli": "^2.0.1",
