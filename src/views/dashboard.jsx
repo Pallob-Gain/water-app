@@ -1,6 +1,6 @@
 import React, { use, useState, useEffect, Suspense } from 'react';
 
-import { withClient, fromServer, useServer, Link, Row, Col, Card, attachServerState, sendServerState, isServer, createServerState, createLazyServerState, useServerState, createChannel, createServerInterface } from "@mvc/water-app/UI/components";
+import { withClient, fromServer, useServer, Link, Row, Col, Card, attachServerState, sendServerState, isServer, createServerState, createLazyServerState, useServerState, createChannel, createChannelAll, createServerInterface } from "@mvc/water-app/UI/components";
 import Layout from "./components/Layout.jsx";
 import dinosaurs from '../apis/dinosaurs/data.json' with {type: 'json'};
 import global_share from '@mvc/water-app/global-share';
@@ -23,6 +23,7 @@ countState.onSet((value) => {
 
 //channel example
 const [receiver, sender] = createChannel('server-channel-example');
+const [receiverAll, senderAll] = createChannelAll('server-channel-all-example');
 
 
 const ServerInfoSSR = async function () {
@@ -63,19 +64,32 @@ receiver.serverRecv((server_time) => {
     //console.log('Receive time at server:', new Date(server_time));
 });
 
+receiverAll.serverRecv((text) => {
+    console.log('Receive text at server:', text);
+});
+
 function Dashboard(props) {
     let signeture = { client: props.__client };
-    const ServerInfo = useServer(signeture, ServerInfoSSR);
-    const ServerDirect = useServer(signeture, ServerDirectSSR);
+    //const ServerInfo = useServer(signeture, ServerInfoSSR);
+   // const ServerDirect = useServer(signeture, ServerDirectSSR);
+    const [realTimeText, setRealTimeText] = useState(''); 
 
     receiver.recv((server_time) => {
         //console.log('Receive time at client:', new Date(server_time));
     });
 
+    receiverAll.recv((text) => {
+        setRealTimeText(text);
+    });
+
 
     return <Layout  {...props} title="Dashboard">
-        <ServerInfo id='server-info' />
-        <ServerDirect id='server-infox' />
+        {/* <ServerInfo id='server-info' />
+        <ServerDirect id='server-infox' /> */}
+        
+        <p>Real Time Text: <b>{realTimeText}</b></p>
+        <textarea  onChange={(e) => senderAll.clientSend(e.target.value)}></textarea>
+
         <p>Click on a dinosaur below to learn more.</p>
         <Suspense >
             <RealTimeServerRepresent client={props.__client} />
@@ -93,6 +107,7 @@ function Dashboard(props) {
                 );
             })}
         </Row>
+       
 
     </Layout>;
 }
